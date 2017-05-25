@@ -17,6 +17,7 @@ class yf_time_struct(object):
         s = ''
         for tmp in trup:
             s += '%02d:' % tmp
+
         return s
 
     def show(self, view=False, rt_str=True):
@@ -202,7 +203,7 @@ def chart(time):
         workbook = xlsxwriter.Workbook('%s_chart_%s.xls' % (time, i))  # 创建一个excel文件
         data = xlrd.open_workbook('data/%s_%s.xls' % (time, i), 'rb')  # 打开fname文件
         name = "sheet1"
-        table = data.sheet_by_index(0)  # 通过索引获取xls文件第0个sheet
+        table = data.sheet_by_index(0)
         nrows = table.nrows  # 获取table工作表总行数
         ncols = table.ncols  # 获取table工作表总列数
         worksheet = workbook.add_worksheet("%s" % name)  # 创建一个工作表对象
